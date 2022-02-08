@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
-import { css } from "styled-components/macro"; //eslint-disable-line
 import SignUpModal from "../modal/SignUpModal";
 import LoginModal from "../modal/LoginModal";
+import { LogoutAction } from "../../redux/actions/AuthActions";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import Header, { NavLink, NavLinks, PrimaryLink, SecondaryLink, LogoLink, NavToggle, DesktopNavLinks } from "../headers/light.js";
 import ResponsiveVideoEmbed from "../../helpers/ResponsiveVideoEmbed.js";
-import Button from "@material-tailwind/react/Button"
 
 const StyledHeader = styled(Header)`
   ${tw`pt-8 max-w-none`}
@@ -64,6 +65,44 @@ const BackgroundAsImage = () => {
   const [showLogin, setShowLogin] = React.useState(false);
   const [showSignUp, setShowSignUp] = React.useState(false);
 
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const authResponse = useSelector((state) => state.userAuth.authResponse);
+
+  const logOut = () => {
+    dispatch(LogoutAction());
+    navigate("/");
+  };
+
+
+  const token = localStorage.getItem("user-token");
+
+  useEffect(() => {
+    if (authResponse !== "" && authResponse.success === true) {
+      alert(authResponse.message);
+      localStorage.removeItem("user-token");
+    }
+    return () => { };
+  }, [authResponse]);
+
+  const GetButtons = () => {
+    if (token !== null && token !== "") {
+      return (<NavLinks key={2}>
+        <PrimaryLink onClick={logOut}>
+          Logout
+        </PrimaryLink>
+      </NavLinks>)
+    } else {
+      return (<NavLinks key={2}>
+        <PrimaryLink onClick={() => setShowLogin(true)}>
+          Login
+        </PrimaryLink>
+        <SecondaryLink onClick={() => setShowSignUp(true)}>
+          Sign Up
+        </SecondaryLink>
+      </NavLinks>)
+    }
+  }
 
 
   const navLinks = [
@@ -81,14 +120,7 @@ const BackgroundAsImage = () => {
         Pricing
       </NavLink>
     </NavLinks>,
-    <NavLinks key={2}>
-      <PrimaryLink onClick={(e) => setShowLogin(true)}>
-        Login
-      </PrimaryLink>
-      <SecondaryLink onClick={(e) => setShowSignUp(true)}>
-        Sign Up
-      </SecondaryLink>
-    </NavLinks>
+    <GetButtons />
   ];
 
   return (

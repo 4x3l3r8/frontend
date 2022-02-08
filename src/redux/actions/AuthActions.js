@@ -28,6 +28,7 @@ export const LoginAction = (credentials, history) => {
       (res) => {
         if (res.hasOwnProperty("success") && res.success === true) {
           localStorage.setItem("user-token", res.token);
+          localStorage.setItem("user-data", JSON.stringify(res.data));
           dispatch({ type: ActionTypes.LOGIN_SUCCESS });
           history("/user/view-profile");
         } else if (res.hasOwnProperty("success") && res.success === false) {
@@ -41,13 +42,14 @@ export const LoginAction = (credentials, history) => {
   };
 };
 
-export const LogoutAction = () => {
+export const LogoutAction = (history) => {
   return (dispatch) => {
     dispatch({ type: ActionTypes.RESTART_AUTH_RESPONSE });
     LogOutUserService().then(
       (res) => {
         if (res.hasOwnProperty("success") && res.success === true) {
           dispatch({ type: ActionTypes.LOGOUT_SUCCESS, res });
+          history("/");
         } else if (res.hasOwnProperty("success") && res.success === false) {
           dispatch({ type: ActionTypes.LOGOUT_ERROR, res });
         }
