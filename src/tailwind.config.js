@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       zIndex: {
-        '-10': '-10',
+        'negative': '-10',
       }
     },
     screens: {
