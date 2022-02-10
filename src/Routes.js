@@ -5,7 +5,7 @@ import Home from "./components/pages/HomeComponent";
 import Login from "pages/Login"
 import Register from "./components/pages/RegisterComponent";
 import Profile from "./components/pages/ProfileComponent";
-import Text from "components/pages/test";
+import Text from "demos/HotelTravelLandingPage";
 // import Page404 from "pages/404";
 // import PrivateRoute from "./PrivateRoute";
 import { ProtectedRoute } from "./Guard";

@@ -34,10 +34,10 @@ const CardSlider = styled(Slider)`
     ${tw`h-auto flex justify-center mb-1`}
   }
 `;
-const Card = tw.div`h-full flex! flex-col sm:border max-w-sm sm:rounded-tl-4xl sm:rounded-br-5xl relative focus:outline-none`;
+const Card = tw.div`h-full flex! flex-col sm:border max-w-sm sm:rounded-tl-3xl sm:rounded-br-3xl relative focus:outline-none`;
 const CardImage = styled.div(props => [
   `background-image: url("${props.imageSrc}");`,
-  tw`w-full h-56 sm:h-64 bg-cover bg-center rounded sm:rounded-none sm:rounded-tl-4xl`
+  tw`w-full h-56 sm:h-64 bg-cover bg-center rounded sm:rounded-none sm:rounded-tl-3xl`
 ]);
 
 const TextInfo = tw.div`py-6 sm:px-10 sm:py-6`;
@@ -64,7 +64,7 @@ const IconContainer = styled.div`
 `;
 const Text = tw.div`ml-2 text-sm font-semibold text-gray-800`;
 
-const PrimaryButton = tw(PrimaryButtonBase)`mt-auto sm:text-lg rounded-none w-full rounded sm:rounded-none sm:rounded-br-4xl py-3 sm:py-6`;
+const PrimaryButton = tw(PrimaryButtonBase)`mt-auto sm:text-lg rounded-none w-full rounded sm:rounded-none sm:rounded-br-3xl py-3 sm:py-6`;
 export default () => {
   // useState is used instead of useRef below because we want to re-render when sliderRef becomes available (not null)
   const [sliderRef, setSliderRef] = useState(null);
