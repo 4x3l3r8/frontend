@@ -18,3 +18,10 @@ export const ProtectedRoute = () => {
   // If not, return element that will navigate to login page
   return auth ? <Outlet /> : <Navigate to="/login" />;
 }
+
+export const AdminRoute = () => {
+  const userData = JSON.parse(localStorage.getItem('user-data'));
+  const isAdmin = userData.is_admin
+
+  return isAdmin ? <Outlet /> : <Navigate to="/" />;
+}
