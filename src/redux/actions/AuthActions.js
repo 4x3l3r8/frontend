@@ -1,5 +1,6 @@
 import * as ActionTypes from "../ActionTypes";
 import { RegisterUserService, LoginUserService, LogOutUserService } from "../../services/AuthServices";
+import { useNavigate } from "react-router-dom";
 
 export const RegisterAction = (credentials) => {
   return (dispatch) => {
@@ -21,6 +22,7 @@ export const RegisterAction = (credentials) => {
 };
 
 export const LoginAction = (credentials, history) => {
+  let navigate = useNavigate();
   return (dispatch) => {
     dispatch({ type: ActionTypes.RESTART_AUTH_RESPONSE });
     dispatch({ type: ActionTypes.LOADING });
@@ -30,7 +32,7 @@ export const LoginAction = (credentials, history) => {
           localStorage.setItem("user-token", res.token);
           localStorage.setItem("user-data", JSON.stringify(res.data));
           dispatch({ type: ActionTypes.LOGIN_SUCCESS });
-          history("/user/view-profile");
+          navigate("/user/view-profile");
         } else if (res.hasOwnProperty("success") && res.success === false) {
           dispatch({ type: ActionTypes.LOGIN_ERROR, res });
         }
