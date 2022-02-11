@@ -15,7 +15,7 @@ const ThreeColumn = tw.div`flex flex-col items-center lg:items-stretch lg:flex-r
 const Column = tw.div`mt-24 lg:w-1/3`;
 
 const HeadingInfoContainer = tw.div`flex flex-col items-center`;
-const HeadingDescription = tw.p`mt-4 font-medium text-gray-600 text-center max-w-sm`;
+const HeadingDescription = tw.p`mt-4 font-medium text-blue-900 text-center max-w-sm`;
 
 const Card = tw.div`lg:mx-4 xl:mx-8 max-w-sm flex flex-col h-full`;
 const Image = styled.div(props => [
@@ -26,14 +26,14 @@ const Image = styled.div(props => [
 const Details = tw.div`p-6 rounded border-2 border-t-0 rounded-t-none border-dashed border-indigo-100 flex-1 flex flex-col items-center text-center lg:block lg:text-left`;
 const MetaContainer = tw.div`flex items-center`;
 const Meta = styled.div`
-  ${tw`text-blue-100 font-medium text-sm flex items-center leading-none mr-6 last:mr-0`}
+  ${tw`text-blue-900 font-medium text-sm flex items-center leading-none mr-6 last:mr-0`}
   svg {
     ${tw`w-4 h-4 mr-1`}
   }
 `;
 
-const Title = tw.h5`mt-4 leading-snug font-bold text-lg`;
-const Description = tw.p`mt-2 text-sm text-blue-100`;
+const Title = tw.h5`mt-4 leading-snug font-bold text-lg text-indigo-500`;
+const Description = tw.p`mt-2 text-sm text-blue-900`;
 const Link = styled(PrimaryButtonBase).attrs({as: "a"})`
   ${tw`inline-block mt-4 text-sm font-semibold`}
 `

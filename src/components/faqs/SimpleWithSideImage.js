@@ -23,7 +23,7 @@ const Image = styled.div(props => [
 const FAQContent = tw.div`lg:ml-12`;
 const Subheading = tw(SubheadingBase)`mb-4 text-center lg:text-left`;
 const Heading = tw(SectionHeading)`lg:text-left`;
-const Description = tw.p`max-w-xl text-center mx-auto lg:mx-0 lg:text-left lg:max-w-none leading-relaxed text-sm sm:text-base lg:text-lg font-medium mt-4 text-blue-100`;
+const Description = tw.p`max-w-xl text-center mx-auto lg:mx-0 lg:text-left lg:max-w-none leading-relaxed text-sm sm:text-base lg:text-lg font-medium mt-4 text-blue-900`;
 
 const FAQSContainer = tw.dl`mt-12`;
 const FAQ = tw.div`cursor-pointer mt-8 select-none border lg:border-0 px-8 py-4 lg:p-0 rounded-lg lg:rounded-none`;

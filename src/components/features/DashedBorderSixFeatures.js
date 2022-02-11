@@ -45,7 +45,7 @@ const Card = styled.div`
   }
 
   .description {
-    ${tw`mt-3 font-semibold text-blue-100 text-sm leading-loose`}
+    ${tw`mt-3 font-semibold text-blue-900 text-sm leading-loose`}
   }
 `;
 
