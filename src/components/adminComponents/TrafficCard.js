@@ -3,6 +3,9 @@ import CardHeader from '@material-tailwind/react/CardHeader';
 import CardBody from '@material-tailwind/react/CardBody';
 import Button from '@material-tailwind/react/Button';
 import Progress from '@material-tailwind/react/Progress';
+import tw from "twin.macro";
+
+const ProgressCell = tw.td`border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left`
 
 export default function TrafficCard() {
     return (
@@ -39,12 +42,12 @@ export default function TrafficCard() {
                                 <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
                                     Facebook
                                 </th>
-                                <td className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
+                                <ProgressCell>
                                     1,480
-                                </td>
-                                <td className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
+                                </ProgressCell>
+                                <ProgressCell>
                                     <Progress color="blue" value="60" />
-                                </td>
+                                </ProgressCell>
                             </tr>
                             <tr>
                                 <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">

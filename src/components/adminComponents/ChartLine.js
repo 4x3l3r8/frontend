@@ -3,7 +3,9 @@ import Chart from 'chart.js';
 import Card from '@material-tailwind/react/Card';
 import CardHeader from '@material-tailwind/react/CardHeader';
 import CardBody from '@material-tailwind/react/CardBody';
+import tw from "twin.macro";
 
+const CanvasContainer = tw.div`relative h-96`;
 export default function ChartLine() {
     useEffect(() => {
         var config = {
@@ -119,9 +121,9 @@ export default function ChartLine() {
                 <h2 className="text-white text-2xl">Sales value</h2>
             </CardHeader>
             <CardBody>
-                <div className="relative h-96">
+                <CanvasContainer>
                     <canvas id="line-chart"></canvas>
-                </div>
+                </CanvasContainer>
             </CardBody>
         </Card>
     );

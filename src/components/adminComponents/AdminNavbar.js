@@ -6,14 +6,31 @@ import Image from '@material-tailwind/react/Image';
 import Dropdown from '@material-tailwind/react/Dropdown';
 import DropdownItem from '@material-tailwind/react/DropdownItem';
 import ProfilePicture from 'images/team-1-800x800.jpg';
+import tw, { css } from "twin.macro"; //eslint-disable-line
+
+const StyledButton = Button
+// color="transparent" buttonType="link" size="lg" iconOnly rounded ripple="light"
+const TwButton = tw(StyledButton)`` //eslint-disable-line
+const Nav = tw.nav`bg-blue-500 md:ml-64 py-6 px-3`
+const NavContainer = tw.div`container max-w-full mx-auto flex items-center justify-between md:pr-8 md:pl-10`
+const Hidden = tw.div`md:hidden` //eslint-disable-line
+
+const ButtonContainer = tw.div`absolute top-2 md:hidden z-50 transition-all duration-300`;
+
+const NavRight = tw.div`flex justify-between items-center w-full`
+const NavHeadText = tw.h4`uppercase text-white text-sm tracking-wider mt-1`
+const ContainerFlex = tw.div`flex`
+const DropdownContainer = tw.div`-mr-4 ml-6`
 
 export default function AdminNavbar({ showSidebar, setShowSidebar }) {
     const location = useLocation().pathname;
 
     return (
-        <nav className="bg-light-blue-500 md:ml-64 py-6 px-3">
-            <div className="container max-w-full mx-auto flex items-center justify-between md:pr-8 md:pl-10">
-                <div className="md:hidden">
+        <Nav>
+            {/* <div className="container max-w-full mx-auto flex items-center justify-between md:pr-8 md:pl-10"> */}
+            <NavContainer>
+                {/* <div className="md:hidden"> */}
+                {/* <Hidden> */}
                     <Button
                         color="transparent"
                         buttonType="link"
@@ -23,12 +40,11 @@ export default function AdminNavbar({ showSidebar, setShowSidebar }) {
                         ripple="light"
                         onClick={() => setShowSidebar('left-0')}
                     >
+                        {/* <TwButton> */}
                         <Icon name="menu" size="2xl" color="white" />
+                        {/* </TwButton> */}
                     </Button>
-                    <div
-                        className={`absolute top-2 md:hidden ${showSidebar === 'left-0' ? 'left-64' : '-left-64'
-                            } z-50 transition-all duration-300`}
-                    >
+                    <ButtonContainer className={showSidebar === "left-0" ? "left-64" : "-left-64"}>
                         <Button
                             color="transparent"
                             buttonType="link"
@@ -40,20 +56,20 @@ export default function AdminNavbar({ showSidebar, setShowSidebar }) {
                         >
                             <Icon name="close" size="2xl" color="white" />
                         </Button>
-                    </div>
-                </div>
+                    </ButtonContainer>
+                {/* </Hidden> */}
 
-                <div className="flex justify-between items-center w-full">
-                    <h4 className="uppercase text-white text-sm tracking-wider mt-1">
+                <NavRight>
+                    <NavHeadText>
                         {location === '/'
                             ? 'DASHBOARD'
                             : location.toUpperCase().replace('/', '')}
-                    </h4>
+                    </NavHeadText>
 
-                    <div className="flex">
+                    <ContainerFlex>
                         <NavbarInput placeholder="Search" />
 
-                        <div className="-mr-4 ml-6">
+                        <DropdownContainer>
                             <Dropdown
                                 color="transparent"
                                 buttonText={
@@ -77,10 +93,10 @@ export default function AdminNavbar({ showSidebar, setShowSidebar }) {
                                     Something Else
                                 </DropdownItem>
                             </Dropdown>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
+                        </DropdownContainer>
+                    </ContainerFlex>
+                </NavRight>
+            </NavContainer>
+        </Nav>
     );
 }

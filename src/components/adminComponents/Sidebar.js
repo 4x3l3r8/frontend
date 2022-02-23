@@ -2,48 +2,57 @@ import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import AdminNavbar from './AdminNavbar';
 import Icon from '@material-tailwind/react/Icon';
+import tw, { css } from "twin.macro"; //eslint-disable-line
 import H6 from '@material-tailwind/react/Heading6';
 
+const SideBarContainer = tw.div`h-screen fixed bottom-0 top-0 md:left-0 overflow-y-auto flex-row flex-nowrap overflow-hidden shadow-xl bg-white w-64 z-10 py-4 px-6 transition-all duration-300`;
+const SideBarFlex = tw.div`flex-col items-stretch min-h-full flex-nowrap px-0 relative`
+const SidebarHeadText = tw.a`mt-2 text-center w-full inline-block`
+const NavBody = tw.div`flex flex-col`
+const HL = tw.hr`my-4 min-w-full`
+const List = tw.ul`flex-col min-w-full flex list-none`
+const ListItems = tw.li`rounded-lg mb-4`
+const ListLink = tw(NavLink)`` //eslint-disable-line
+
+const ButtonLinkGroup = tw.ul`flex-col min-w-full flex list-none absolute bottom-0 inset-x-0`
+
 export default function Sidebar() {
-    const [showSidebar, setShowSidebar] = useState('-left-64');
+    const [showSidebar, setShowSidebar] = useState(tw`-left-64`);
     return (
         <>
             <AdminNavbar
                 showSidebar={showSidebar}
                 setShowSidebar={setShowSidebar}
             />
-            <div
-                className={`h-screen fixed top-0 md:left-0 ${showSidebar} overflow-y-auto flex-row flex-nowrap overflow-hidden shadow-xl bg-white w-64 z-10 py-4 px-6 transition-all duration-300`}
-            >
-                <div className="flex-col items-stretch min-h-full flex-nowrap px-0 relative">
-                    <a
+            <SideBarContainer className={showSidebar}>
+                {/* <div className={`h-screen fixed bottom-0 top-0 md:left-0 ${showSidebar} overflow-y-auto flex-row flex-nowrap overflow-hidden shadow-xl bg-white w-64 z-10 py-4 px-6 transition-all duration-300`}> */}
+                <SideBarFlex>
+                    <SidebarHeadText
                         href="https://material-tailwind.com?ref=mtd"
                         target="_blank"
                         rel="noreferrer"
-                        className="mt-2 text-center w-full inline-block"
                     >
                         <H6 color="gray">Material Tailwind</H6>
-                    </a>
-                    <div className="flex flex-col">
-                        <hr className="my-4 min-w-full" />
+                    </SidebarHeadText>
+                    <NavBody>
+                        <HL />
 
-                        <ul className="flex-col min-w-full flex list-none">
-                            <li className="rounded-lg mb-4">
+                        <List>
+                            <ListItems>
                                 <NavLink
                                     to="/"
-                                    exact
                                     className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
-                                    activeClassName="bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-white shadow-md"
+                                    activeclassname="bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-white shadow-md"
                                 >
                                     <Icon name="dashboard" size="2xl" />
                                     Dashboard
                                 </NavLink>
-                            </li>
+                            </ListItems>
                             <li className="rounded-lg mb-2">
                                 <NavLink
                                     to="/settings"
                                     className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
-                                    activeClassName="bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-white shadow-md"
+                                    activeclassname="bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-white shadow-md"
                                 >
                                     <Icon name="settings" size="2xl" />
                                     Settings
@@ -53,7 +62,7 @@ export default function Sidebar() {
                                 <NavLink
                                     to="/tables"
                                     className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
-                                    activeClassName="bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-white shadow-md"
+                                    activeclassname="bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-white shadow-md"
                                 >
                                     <Icon name="toc" size="2xl" />
                                     Tables
@@ -63,7 +72,7 @@ export default function Sidebar() {
                                 <NavLink
                                     to="/maps"
                                     className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
-                                    activeClassName="bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-white shadow-md"
+                                    activeclassname="bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-white shadow-md"
                                 >
                                     <Icon name="map" size="2xl" />
                                     Maps
@@ -113,9 +122,9 @@ export default function Sidebar() {
                                     Profile Page
                                 </a>
                             </li>
-                        </ul>
+                        </List>
 
-                        <ul className="flex-col min-w-full flex list-none absolute bottom-0">
+                        <ButtonLinkGroup className="flex-col min-w-full flex list-none absolute bottom-0 inset-x-0">
                             <li className="bg-gradient-to-tr from-light-blue-500 to-light-blue-700 px-4 rounded-lg text-white mb-2">
                                 <a
                                     href="https://material-tailwind.com/documentation/quick-start"
@@ -137,10 +146,10 @@ export default function Sidebar() {
                                     Free Download
                                 </a>
                             </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+                        </ButtonLinkGroup>
+                    </NavBody>
+                </SideBarFlex>
+            </SideBarContainer>
         </>
     );
 }

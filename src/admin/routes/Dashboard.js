@@ -1,30 +1,50 @@
 import StatusCard from 'components/adminComponents/StatusCard';
 import ChartLine from 'components/adminComponents/ChartLine';
+import styled from 'styled-components'; // eslint-disable-line
+import tw from "twin.macro";
+import { css } from "styled-components/macro" ; //eslint-disable-line
 import ChartBar from 'components/adminComponents/ChartBar';
 import PageVisitsCard from 'components/adminComponents/PageVisitsCard';
 import TrafficCard from 'components/adminComponents/TrafficCard';
 
+const TopBlueNavBar = tw.div`bg-blue-500 px-3 md:px-8 h-40`;
+const ChartsGroup = tw.div`px-3 md:px-8 -mt-24`
+const ChartsContainer = tw.div`container mx-auto max-w-full`
+const ChartsGrid = tw.div`grid grid-cols-1 xl:grid-cols-5`
+const FirstChart = tw.div`xl:col-start-1 xl:col-end-4 px-4 mb-14`
+const SecondChart = tw.div`xl:col-start-4 xl:col-end-6 px-4 mb-14`
+
+const StatusCardGroup = tw.div`px-3 md:px-8`
+const StatusCardContainer = tw.div`container mx-auto max-w-full`
+const StatusCardGrid = tw.div`grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 mb-4`
+
+const OthersGroup = tw.div`px-3 md:px-8 h-auto`
+const OthersContainer = tw.div`container mx-auto max-w-full`
+const OthersGrid = tw.div`grid grid-cols-1 xl:grid-cols-5`
+const VisitsCard = tw.div`xl:col-start-1 xl:col-end-4 px-4 mb-14`
+const SocialsCard = tw.div`xl:col-start-4 xl:col-end-6 px-4 mb-14`
+
 export default function Dashboard() {
     return (
         <>
-            <div className="bg-light-blue-500 px-3 md:px-8 h-40" />
+            <TopBlueNavBar />
 
-            <div className="px-3 md:px-8 -mt-24">
-                <div className="container mx-auto max-w-full">
-                    <div className="grid grid-cols-1 xl:grid-cols-5">
-                        <div className="xl:col-start-1 xl:col-end-4 px-4 mb-14">
+            <ChartsGroup>
+                <ChartsContainer>
+                    <ChartsGrid>
+                        <FirstChart>
                             <ChartLine />
-                        </div>
-                        <div className="xl:col-start-4 xl:col-end-6 px-4 mb-14">
+                        </FirstChart>
+                        <SecondChart>
                             <ChartBar />
-                        </div>
-                    </div>
-                </div>
-            </div>
+                        </SecondChart>
+                    </ChartsGrid>
+                </ChartsContainer>
+            </ChartsGroup>
 
-            <div className="px-3 md:px-8">
-                <div className="container mx-auto max-w-full">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 mb-4">
+            <StatusCardGroup>
+                <StatusCardContainer>
+                    <StatusCardGrid>
                         <StatusCard
                             color="pink"
                             icon="trending_up"
@@ -65,22 +85,22 @@ export default function Dashboard() {
                             percentageColor="green"
                             date="Since last month"
                         />
-                    </div>
-                </div>
-            </div>
+                    </StatusCardGrid>
+                </StatusCardContainer>
+            </StatusCardGroup>
 
-            <div className="px-3 md:px-8 h-auto">
-                <div className="container mx-auto max-w-full">
-                    <div className="grid grid-cols-1 xl:grid-cols-5">
-                        <div className="xl:col-start-1 xl:col-end-4 px-4 mb-14">
+            <OthersGroup>
+                <OthersContainer>
+                    <OthersGrid>
+                        <VisitsCard>
                             <PageVisitsCard />
-                        </div>
-                        <div className="xl:col-start-4 xl:col-end-6 px-4 mb-14">
+                        </VisitsCard>
+                        <SocialsCard>
                             <TrafficCard />
-                        </div>
-                    </div>
-                </div>
-            </div>
+                        </SocialsCard>
+                    </OthersGrid>
+                </OthersContainer>
+            </OthersGroup>
         </>
     );
 }

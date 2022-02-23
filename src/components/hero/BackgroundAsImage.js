@@ -135,7 +135,7 @@ const BackgroundAsImage = () => {
               <Heading>
                 <span>Hire the best</span>
                 <br />
-                <SlantedBackground>Marketing Team.</SlantedBackground>
+                <SlantedBackground>Travel Agency.</SlantedBackground>
               </Heading>
               <PrimaryAction>Read Customer Stories</PrimaryAction>
             </LeftColumn>

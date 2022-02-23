@@ -93,7 +93,7 @@ const Light = ({ roundedHeaderButton = false, logoLink, links, className, collap
   const defaultLogoLink = (
     <LogoLink href="/">
       <img src={logo} alt="logo" />
-      Treact
+      Haegmon
     </LogoLink>
   );
 
