@@ -1,6 +1,7 @@
 export default class HttpService {
-  // url = "http://localhost:8000/api";
-  url = process.env.REACT_APP_API_BASEURL
+  url = "http://localhost:8000/api";
+  // url = "http://reactpassport.herokuapp.com/api"
+  // url = process.env.REACT_APP_API_BASEURL
 
   postData = async (body, added_url, tokenId = "") => {
     const token = await localStorage.getItem(tokenId);
