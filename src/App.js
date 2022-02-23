@@ -7,7 +7,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Routes />
+        <Routes path="/*"/>
       </div>
     </BrowserRouter>
   );

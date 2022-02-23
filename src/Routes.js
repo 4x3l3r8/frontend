@@ -1,22 +1,23 @@
 import React from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Home from "./components/pages/HomeComponent";
-// import Login from "./components/pages/LoginComponent";
-import Login from "pages/Login"
-import Register from "./components/pages/RegisterComponent";
 import Profile from "./components/pages/ProfileComponent";
 import Text from "demos/HotelTravelLandingPage";
-import Admin from "admin"
-// import Page404 from "pages/404";
-// import PrivateRoute from "./PrivateRoute";
+import Settings from './admin/routes/Settings'; //eslint-disable-line
+import Admin from "admin";
 import { ProtectedRoute, AdminRoute } from "./Guard";
 // import Header from "./components/layouts/Header";
 
-function Switch() {
+function Error() {
+  let location = useLocation()
+  return <h1 style={{ textAlign: 'center' }}>Resourse at {location.pathname} don't exist</h1>
+}
+
+function MainRoutes() {
   return (
     <>
       {/* <Header /> */}
-      <Routes>
+      <Routes path="/*">
         <Route path="/" element={<Home />} />
         <Route path="/test" element={<Text />} />
 
@@ -27,14 +28,23 @@ function Switch() {
         </Route>
 
         {/* Admin Routes */}
-        <Route exact path="/admin" element={<AdminRoute />}>
-          <Route exact path="/admin/" render={<Admin />} />
-          {/* <Route exact path="/admin" render={(props) => <Navigate to={{ pathname: `${props.match.path}/dashboard` }} />} /> */}
+        {/* <Route exact path="/admin" element={<AdminRoute />}>
+          <Route exact
+            path="/admin"
+            // element={<Admin />}
+            children={[
+              <Admin />
+            ]}
+          />
+          <Route exact path="/admin" render={(props) => <Navigate to={{ pathname: `${props.match.path}/dashboard` }} />} />
+        </Route> */}
+        <Route path="/admin/*" element={<AdminRoute />}>
+          <Route index element={<Admin />} />
         </Route>
-        {/* <Guard path="/user" token="user-token" routeRedirect="/user/login" component={PrivateRoute} /> */}
-        {/* <Route element={<Page404 />} /> */}
+        
+        <Route path="*" element={<Error />} />
       </Routes>
     </>
   );
 }
-export default Switch;
+export default MainRoutes;
