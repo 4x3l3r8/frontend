@@ -38,8 +38,9 @@ function MainRoutes() {
           />
           <Route exact path="/admin" render={(props) => <Navigate to={{ pathname: `${props.match.path}/dashboard` }} />} />
         </Route> */}
-        <Route path="/admin/*" element={<AdminRoute />}>
-          <Route index element={<Admin />} />
+        <Route path="admin" element={<AdminRoute />}>
+          {/* <Route path="admin/*" element={<Admin />} /> */}
+          <Route path="admin/*" element={<Admin />} />
         </Route>
         
         <Route path="*" element={<Error />} />

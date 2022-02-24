@@ -33,10 +33,10 @@ function Admin() {
             <Sidebar />
             <Pages>
                 <Routes path="/*">
-                    <Route path="/*" element={<Dashboard />} />
-                    <Route path="settings" element={<Settings />} />
-                    <Route path="tables" element={Tables} />
-                    <Route path="maps" element={Maps} />
+                    <Route path="/dashboard" element={<Dashboard />} />
+                    <Route path="/settings" element={<Settings />} />
+                    <Route path="tables" element={<Tables />} />
+                    <Route path="maps" element={<Maps />} />
                 </Routes>
                 <Footer />
             </Pages>

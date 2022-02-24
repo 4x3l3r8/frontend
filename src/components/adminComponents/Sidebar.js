@@ -40,9 +40,8 @@ export default function Sidebar() {
                         <List>
                             <ListItems>
                                 <NavLink
-                                    to="/"
-                                    className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
-                                    activeclassname="bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-white shadow-md"
+                                    to="/admin/admin/dashboard"
+                                    className={(navData) => navData.isActive ? "bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-white shadow-md" : "flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"}
                                 >
                                     <Icon name="dashboard" size="2xl" />
                                     Dashboard
@@ -50,7 +49,7 @@ export default function Sidebar() {
                             </ListItems>
                             <li className="rounded-lg mb-2">
                                 <NavLink
-                                    to="/settings"
+                                    to="/admin/admin/settings"
                                     className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
                                     activeclassname="bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-white shadow-md"
                                 >
@@ -60,7 +59,7 @@ export default function Sidebar() {
                             </li>
                             <li className="rounded-lg mb-2 ">
                                 <NavLink
-                                    to="/tables"
+                                    to="/admin/admin/tables"
                                     className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
                                     activeclassname="bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-white shadow-md"
                                 >
@@ -70,7 +69,7 @@ export default function Sidebar() {
                             </li>
                             <li className="rounded-lg mb-2 text-gray-700">
                                 <NavLink
-                                    to="/maps"
+                                    to="/admin/admin/maps"
                                     className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
                                     activeclassname="bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-white shadow-md"
                                 >
@@ -78,7 +77,7 @@ export default function Sidebar() {
                                     Maps
                                 </NavLink>
                             </li>
-                            <li className="px-4 rounded-lg mb-2 text-gray-700">
+                            {/* <li className="px-4 rounded-lg mb-2 text-gray-700">
                                 <a
                                     href="https://demos.creative-tim.com/material-tailwind-kit-react/#/login"
                                     target="_blank"
@@ -121,7 +120,7 @@ export default function Sidebar() {
                                     <Icon name="account_circle" size="2xl" />
                                     Profile Page
                                 </a>
-                            </li>
+                            </li> */}
                         </List>
 
                         <ButtonLinkGroup className="flex-col min-w-full flex list-none absolute bottom-0 inset-x-0">

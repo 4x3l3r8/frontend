@@ -30,7 +30,7 @@ export default function AdminNavbar({ showSidebar, setShowSidebar }) {
             {/* <div className="container max-w-full mx-auto flex items-center justify-between md:pr-8 md:pl-10"> */}
             <NavContainer>
                 {/* <div className="md:hidden"> */}
-                {/* <Hidden> */}
+                <Hidden>
                     <Button
                         color="transparent"
                         buttonType="link"
@@ -57,7 +57,7 @@ export default function AdminNavbar({ showSidebar, setShowSidebar }) {
                             <Icon name="close" size="2xl" color="white" />
                         </Button>
                     </ButtonContainer>
-                {/* </Hidden> */}
+                </Hidden>
 
                 <NavRight>
                     <NavHeadText>
