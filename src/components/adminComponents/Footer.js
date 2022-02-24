@@ -1,20 +1,29 @@
+import tw from "twin.macro"
+
+const Footer = tw.footer`py-6 px-16 border-t border-gray-200 font-light flex flex-col lg:flex-row justify-between items-center`
+const P = tw.p`text-gray-700 mb-6 lg:mb-0`
+const A = tw.a`text-blue-500 hover:text-blue-700`
+const FooterUl = tw.ul`list-none flex`
+const FooterLi = tw.li`mr-6`
+
+
 export default function footer() {
     return (
-        <footer className="py-6 px-16 border-t border-gray-200 font-light flex flex-col lg:flex-row justify-between items-center">
-            <p className="text-gray-700 mb-6 lg:mb-0">
+        <Footer>
+            <P>
                 Copyright &copy; {new Date().getFullYear()}{' '}
-                <a
+                <A
                     href="https://www.creative-tim.com?ref=mtdk"
                     target="_blank"
                     rel="noreferrer"
-                    className="text-light-blue-500 hover:text-light-blue-700"
+                    className=""
                 >
                     Creative Tim
-                </a>
-            </p>
+                </A>
+            </P>
 
-            <ul className="list-unstyled flex">
-                <li className="mr-6">
+            <FooterUl className="">
+                <FooterLi className="">
                     <a
                         className="text-gray-700 hover:text-gray-900 font-medium block text-sm"
                         target="_blank"
@@ -23,8 +32,8 @@ export default function footer() {
                     >
                         About Us
                     </a>
-                </li>
-                <li className="mr-6">
+                </FooterLi>
+                <FooterLi className="mr-6">
                     <a
                         className="text-gray-700 hover:text-gray-900 font-medium block text-sm"
                         target="_blank"
@@ -33,8 +42,8 @@ export default function footer() {
                     >
                         Blog
                     </a>
-                </li>
-                <li className="mr-6">
+                </FooterLi>
+                <FooterLi className="mr-6">
                     <a
                         className="text-gray-700 hover:text-gray-900 font-medium block text-sm"
                         target="_blank"
@@ -43,8 +52,8 @@ export default function footer() {
                     >
                         MIT License
                     </a>
-                </li>
-                <li>
+                </FooterLi>
+                <FooterLi>
                     <a
                         className="text-gray-700 hover:text-gray-900 font-medium block text-sm"
                         target="_blank"
@@ -53,8 +62,8 @@ export default function footer() {
                     >
                         Contact Us
                     </a>
-                </li>
-            </ul>
-        </footer>
+                </FooterLi>
+            </FooterUl>
+        </Footer>
     );
 }
