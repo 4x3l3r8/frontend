@@ -17,7 +17,7 @@ const Image = styled.div(props => [
   `background-image: url("${props.imageSrc}");`,
   props.imageContain ? tw`bg-contain bg-no-repeat` : tw`bg-cover`,
   props.imageShadow ? tw`shadow` : tw`shadow-none`,
-  tw`hidden lg:block rounded h-14 bg-center`
+  tw`hidden lg:block rounded h-96 bg-center`
 ]);
 
 const FAQContent = tw.div`lg:ml-12`;
@@ -37,7 +37,7 @@ const QuestionToggleIcon = styled.span`
 `;
 const Answer = motion(tw.dd`pointer-events-none text-sm sm:text-base leading-relaxed`);
 
-export default ({
+export default ({ //eslint-disable-line
   subheading = "",
   heading = "Questions",
   description = "Here are some frequently asked questions about our hotels from our loving customers. Should you have any other questions, feel free to reach out via the contact form below.",

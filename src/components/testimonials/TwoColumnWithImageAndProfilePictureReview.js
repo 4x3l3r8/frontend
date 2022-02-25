@@ -20,14 +20,14 @@ const TestimonialsContainer = tw.div`mt-16 lg:mt-0`;
 const Testimonials = styled.div``;
 const Testimonial = tw.div`max-w-md lg:max-w-none mx-auto lg:mx-0 flex flex-col items-center lg:items-stretch lg:flex-row`;
 
-const TestimonialImageSlider = tw(Slider)`w-full lg:w-5/12 flex-shrink-0 `;
+const TestimonialImageSlider = tw(Slider)`w-full md:w-5/12 flex-shrink-0 `;
 const TestimonialTextSlider = tw(Slider)``;
 const TestimonialText = tw.div`outline-none`;
 
 const ImageAndControlContainer = tw.div`relative outline-none`;
 const Image = styled.div(props => [
   `background-image: url("${props.imageSrc}");`,
-  tw`rounded bg-cover bg-center h-80 sm:h-96 lg:h-14`
+  tw`rounded bg-cover bg-center h-80 sm:h-96 md:h-96 lg:h-96`
 ]);
 
 const ControlContainer = tw.div`absolute bottom-0 right-0 bg-gray-100 px-6 py-4 rounded-tl-3xl border`;
@@ -60,12 +60,12 @@ const QuotesRight = tw(QuotesRightIcon)`w-6 h-6 opacity-75 text-indigo-500 inlin
 
 const DecoratorBlob1 = tw(
   SvgDecoratorBlob1
-)`absolute w-32 top-0 left-0 z-10 text-indigo-500 opacity-25 transform -translate-x-full`;
+)`absolute w-32 top-0 left-0 z-10 text-gray-500 opacity-25 transform -translate-x-full`;
 const DecoratorBlob2 = tw(
   SvgDecoratorBlob2
 )`absolute w-32 bottom-0 right-0 z-10 text-pink-500 opacity-10 transform translate-x-2/3 translate-y-8`;
 
-export default ({
+export default ({ //eslint-disable-line
   subheading = "",
   heading = "Testimonials",
   description = "Here are what some of our amazing customers are saying about our hotels & tours. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",

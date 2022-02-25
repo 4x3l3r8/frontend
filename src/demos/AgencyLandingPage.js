@@ -31,7 +31,7 @@ const AgencyLandingPage = () => (
       subheading="Testimonials"
       heading={
         <>
-          Our Clients <span tw="text-indigo-500">Love Us.</span>
+          Our Clients <span tw="text-indigo-700">Love Us.</span>
         </>
       }
       description="Here are what some of our amazing customers are saying about our marketing professionals. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
