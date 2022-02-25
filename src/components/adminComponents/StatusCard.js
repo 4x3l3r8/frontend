@@ -4,6 +4,9 @@ import CardHeader from '@material-tailwind/react/CardHeader';
 import CardStatus from '@material-tailwind/react/CardStatus';
 import CardStatusFooter from '@material-tailwind/react/CardStatusFooter';
 import Icon from '@material-tailwind/react/Icon';
+import tw from "twin.macro";
+
+const CardHolder = tw.div`px-4 mb-10`
 
 export default function StatusCard({
     color,
@@ -16,7 +19,7 @@ export default function StatusCard({
     date,
 }) {
     return (
-        <div className="px-4 mb-10">
+        <CardHolder>
             <Card>
                 <CardRow>
                     <CardHeader color={color} iconOnly className="mb-0">
@@ -34,6 +37,6 @@ export default function StatusCard({
                     <Icon color={percentageColor} name={percentageIcon} />
                 </CardStatusFooter>
             </Card>
-        </div>
+        </CardHolder>
     );
 }
