@@ -20,8 +20,12 @@ export const ProtectedRoute = () => {
 }
 
 export const AdminRoute = () => {
-  const userData = JSON.parse(localStorage.getItem('user-data'));
-  const isAdmin = userData.is_admin
+  if (localStorage.getItem('user-data')) {
+    const userData = JSON.parse(localStorage.getItem('user-data'));
+    const isAdmin = userData.is_admin
 
-  return isAdmin ? <Outlet /> : <Navigate to="/" />;
+    return isAdmin ? <Outlet /> : <Navigate to="/" />;
+  } else {
+    return <Navigate to="/" />;
+  }
 }
