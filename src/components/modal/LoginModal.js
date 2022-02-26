@@ -26,10 +26,13 @@ const SignUpModal = ({ showModal, setShowModal }) => {
         });
     };
 
-    const UserLogin = (e) => {
+    const UserLogin = async(e) => {
         e.preventDefault();
-        console.log(fields);
-        dispatch(LoginAction(fields, history));
+        // console.log(fields);
+        await dispatch(LoginAction(fields, history));
+        if(localStorage.getItem('user-data').is_Admin === 1){
+            history("/admin/admin/dashboard")
+        }
     };
 
 
