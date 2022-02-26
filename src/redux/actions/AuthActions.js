@@ -1,6 +1,6 @@
 import * as ActionTypes from "../ActionTypes";
 import { RegisterUserService, LoginUserService, LogOutUserService } from "../../services/AuthServices";
-import { useNavigate } from "react-router-dom"; // eslint-disable-line
+import { Navigate } from "react-router-dom"; // eslint-disable-line
 
 // const navigate = useNavigate();
 
@@ -34,7 +34,7 @@ export function LoginAction(credentials, history) {
           localStorage.setItem("user-token", res.token);
           localStorage.setItem("user-data", JSON.stringify(res.data));
           dispatch({ type: ActionTypes.LOGIN_SUCCESS });
-          // navigate("/user/view-profile");
+          Navigate("/");
         } else if (res.hasOwnProperty("success") && res.success === false) {
           dispatch({ type: ActionTypes.LOGIN_ERROR, res });
         }
@@ -53,7 +53,7 @@ export const LogoutAction = (history) => {
       (res) => {
         if (res.hasOwnProperty("success") && res.success === true) {
           dispatch({ type: ActionTypes.LOGOUT_SUCCESS, res });
-          history("/");
+          Navigate("/");
         } else if (res.hasOwnProperty("success") && res.success === false) {
           dispatch({ type: ActionTypes.LOGOUT_ERROR, res });
         }
