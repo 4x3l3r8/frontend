@@ -24,6 +24,8 @@ const DropdownContainer = tw.div`-mr-4 ml-6`
 
 export default function AdminNavbar({ showSidebar, setShowSidebar }) {
     const location = useLocation().pathname;
+    const heading_text_array = location.toUpperCase().split('/');
+    const heading = heading_text_array[heading_text_array.length - 1];
 
     return (
         <Nav>
@@ -61,9 +63,7 @@ export default function AdminNavbar({ showSidebar, setShowSidebar }) {
 
                 <NavRight>
                     <NavHeadText>
-                        {location === '/'
-                            ? 'DASHBOARD'
-                            : location.toUpperCase().replace('/', '')}
+                        {heading}
                     </NavHeadText>
 
                     <ContainerFlex>
