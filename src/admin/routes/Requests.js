@@ -1,13 +1,21 @@
 import StatusCard from 'components/adminComponents/StatusCard';
 import TableCard from 'components/adminComponents/TableCard';
-import tw from 'twin.macro' //eslint-disable-line
+import tw from 'twin.macro'
+
+const CardsGroup = tw.div`bg-blue-500 pt-14 pb-28 px-3 md:px-8 h-auto`;
+const CardsContainer = tw.div`container mx-auto max-w-full`
+const CardsGrid = tw.div`grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4`
+
+const SecondGroup = tw.div`px-3 md:px-8 h-auto -mt-24`
+const SecondConatainer = tw.div`container mx-auto max-w-full`
+const SecondGrid = tw.div`grid grid-cols-1 px-4 mb-16`
 
 export default function Dashboard() {
     return (
         <>
-            <div className="bg-light-blue-500 pt-14 pb-28 px-3 md:px-8 h-auto">
-                <div className="container mx-auto max-w-full">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4">
+            <CardsGroup>
+                <CardsContainer>
+                    <CardsGrid>
                         <StatusCard
                             color="pink"
                             icon="trending_up"
@@ -48,17 +56,17 @@ export default function Dashboard() {
                             percentageColor="green"
                             date="Since last month"
                         />
-                    </div>
-                </div>
-            </div>
+                    </CardsGrid>
+                </CardsContainer>
+            </CardsGroup>
 
-            <div className="px-3 md:px-8 h-auto -mt-24">
-                <div className="container mx-auto max-w-full">
-                    <div className="grid grid-cols-1 px-4 mb-16">
+            <SecondGroup>
+                <SecondConatainer>
+                    <SecondGrid>
                         <TableCard />
-                    </div>
-                </div>
-            </div>
+                    </SecondGrid>
+                </SecondConatainer>
+            </SecondGroup>
         </>
     );
 }
