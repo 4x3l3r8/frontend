@@ -12,6 +12,12 @@ const Input1wrap = tw.div`w-full lg:w-6/12 pr-4 mb-10 font-light`
 const Input2wrap = tw.div`w-full lg:w-6/12 pl-4 mb-10 font-light`
 const TextAreaWrap = tw(FormWrap)`font-light`
 
+const InputDivWrap = tw.div`w-full mb-10 font-light`
+const Input3Wrap = tw(InputDivWrap)`lg:w-11/12`
+const Input4Wrap = tw(InputDivWrap)`pr-4 lg:w-4/12`
+const Input5Wrap = tw(InputDivWrap)`px-4 lg:w-4/12`
+const Input6Wrap = tw(InputDivWrap)`pl-4 lg:w-4/12`
+
 export default function SettingsForm() {
     return (
         <Card>
@@ -68,34 +74,34 @@ export default function SettingsForm() {
                         Contact Information
                     </h6>
                     <FormWrap>
-                        <div className="w-full lg:w-12/12 mb-10 font-light">
+                        <Input3Wrap>
                             <Input
                                 type="text"
                                 color="purple"
                                 placeholder="Address"
                             />
-                        </div>
-                        <div className="w-full lg:w-4/12 pr-4 mb-10 font-light">
+                        </Input3Wrap>
+                        <Input4Wrap>
                             <Input
                                 type="text"
                                 color="purple"
                                 placeholder="City"
                             />
-                        </div>
-                        <div className="w-full lg:w-4/12 px-4 mb-10 font-light">
+                        </Input4Wrap>
+                        <Input5Wrap>
                             <Input
                                 type="text"
                                 color="purple"
                                 placeholder="Country"
                             />
-                        </div>
-                        <div className="w-full lg:w-4/12 pl-4 mb-10 font-light">
+                        </Input5Wrap>
+                        <Input6Wrap>
                             <Input
                                 type="text"
                                 color="purple"
                                 placeholder="Postal Code"
                             />
-                        </div>
+                        </Input6Wrap>
                     </FormWrap>
 
                     <h6 className="text-purple-500 text-sm my-6 font-light uppercase">

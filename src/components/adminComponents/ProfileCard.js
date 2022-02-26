@@ -7,15 +7,21 @@ import Icon from '@material-tailwind/react/Icon';
 import LeadText from '@material-tailwind/react/LeadText';
 import Button from '@material-tailwind/react/Button';
 import ProfilePicture from 'images/team-1-800x800.jpg';
+import tw from "twin.macro";
+
+const CardHeader = tw.div`flex flex-wrap justify-center`
+const CardHeaderPhoto = tw.div`w-48 px-4 -mt-24`
+const CardHeaderCounter = tw.div`w-full flex justify-center py-4 lg:pt-4 pt-8`
+const CardBodyText = tw.div`border-t border-blue-200 text-center px-2`
 
 export default function ProfileCard() {
     return (
         <Card>
-            <div className="flex flex-wrap justify-center">
-                <div className="w-48 px-4 -mt-24">
+            <CardHeader>
+                <CardHeaderPhoto>
                     <Image src={ProfilePicture} rounded raised />
-                </div>
-                <div className="w-full flex justify-center py-4 lg:pt-4 pt-8">
+                </CardHeaderPhoto>
+                <CardHeaderCounter>
                     <div className="p-4 text-center">
                         <span className="text-xl font-medium block uppercase tracking-wide text-gray-900">
                             22
@@ -34,8 +40,8 @@ export default function ProfileCard() {
                         </span>
                         <span className="text-sm text-gray-700">Photos</span>
                     </div>
-                </div>
-            </div>
+                </CardHeaderCounter>
+            </CardHeader>
             <div className="text-center">
                 <H5 color="gray">John Smith</H5>
                 <div className="mt-0 mb-2 text-gray-700 flex items-center justify-center gap-2">
@@ -52,7 +58,7 @@ export default function ProfileCard() {
                 </div>
             </div>
             <CardBody>
-                <div className="border-t border-lightBlue-200 text-center px-2 ">
+                <CardBodyText>
                     <LeadText color="blueGray">
                         An artist of considerable range, Jenna the name taken by
                         Melbourne-raised, Brooklyn-based Nick Murphy writes,
@@ -60,7 +66,7 @@ export default function ProfileCard() {
                         warm, intimate feel with a solid groove structure. An
                         artist of considerable range.
                     </LeadText>
-                </div>
+                </CardBodyText>
             </CardBody>
             <CardFooter>
                 <div className="w-full flex justify-center -mt-8">
