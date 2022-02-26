@@ -77,18 +77,16 @@ export default function Sidebar() {
                                     Maps
                                 </NavLink>
                             </li>
-                            {/* <li className="px-4 rounded-lg mb-2 text-gray-700">
-                                <a
-                                    href="https://demos.creative-tim.com/material-tailwind-kit-react/#/login"
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    className="flex items-center gap-4 text-sm font-light py-3"
+                            <li className="px-4 rounded-lg mb-2 text-gray-700">
+                                <NavLink
+                                    to="/admin/admin/requests"
+                                    className={(navData) => navData.isActive ? 'bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-white shadow-md' : 'flex items-center gap-4 text-sm font-light py-3'}
                                 >
                                     <Icon name="fingerprint" size="2xl" />
-                                    Login
-                                </a>
+                                    Requests
+                                </NavLink>
                             </li>
-                            <li className="px-4 rounded-lg mb-2 text-gray-700">
+                            {/*<li className="px-4 rounded-lg mb-2 text-gray-700">
                                 <a
                                     href="https://demos.creative-tim.com/material-tailwind-kit-react/#/register"
                                     target="_blank"
