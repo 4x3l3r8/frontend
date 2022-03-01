@@ -7,6 +7,7 @@ import Maps from './routes/Maps';
 import tw from "twin.macro"
 import Footer from 'components/adminComponents/Footer';
 import Requests from './routes/Requests';
+import Posts from './routes/Posts';
 // import P404 from '../pages/404';
 // import "../App.css"
 // import "@material-tailwind/react/tailwind.css";
@@ -39,6 +40,7 @@ function Admin() {
                     <Route path="tables" element={<Tables />} />
                     <Route path="maps" element={<Maps />} />
                     <Route path="requests" element={<Requests />} />
+                    <Route path="posts" element={<Posts />} />
                 </Routes>
                 <Footer />
             </Pages>

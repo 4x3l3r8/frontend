@@ -86,18 +86,16 @@ export default function Sidebar() {
                                     Requests
                                 </NavLink>
                             </li>
-                            {/*<li className="px-4 rounded-lg mb-2 text-gray-700">
-                                <a
-                                    href="https://demos.creative-tim.com/material-tailwind-kit-react/#/register"
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    className="flex items-center gap-4 text-sm font-light py-3"
+                            <li className="px-4 rounded-lg mb-2 text-gray-700">
+                                <NavLink
+                                    to="/admin/admin/posts"
+                                    className={(navData) => navData.isActive ? 'bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-white shadow-md' : 'flex items-center gap-4 text-sm font-light py-3'}
                                 >
                                     <Icon name="list_alt" size="2xl" />
-                                    Register
-                                </a>
+                                    Posts
+                                </NavLink>
                             </li>
-                            <li className="px-4 rounded-lg mb-2 text-gray-700">
+                            {/*<li className="px-4 rounded-lg mb-2 text-gray-700">
                                 <a
                                     href="https://demos.creative-tim.com/material-tailwind-kit-react/#/landing"
                                     target="_blank"
