@@ -14,7 +14,7 @@ const List = tw.ul`flex-col min-w-full flex list-none`
 const ListItems = tw.li`rounded-lg mb-4`
 const ListLink = tw(NavLink)`` //eslint-disable-line
 
-const ButtonLinkGroup = tw.ul`flex-col min-w-full flex list-none absolute bottom-0 inset-x-0`
+const ButtonLinkGroup = tw.ul`flex-col min-w-full flex list-none absolute bottom-0 inset-x-0` 
 
 export default function Sidebar() {
     const [showSidebar, setShowSidebar] = useState(tw`-left-64`);
@@ -82,7 +82,7 @@ export default function Sidebar() {
                                     to="/admin/admin/requests"
                                     className={(navData) => navData.isActive ? 'bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-white shadow-md' : 'flex items-center gap-4 text-sm font-light py-3'}
                                 >
-                                    <Icon name="fingerprint" size="2xl" />
+                                    <Icon name="request_page" size="2xl" />
                                     Requests
                                 </NavLink>
                             </li>

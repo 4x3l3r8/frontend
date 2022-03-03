@@ -1,22 +1,37 @@
-import StatusCard from 'components/adminComponents/StatusCard';
-import TableCard from 'components/adminComponents/TableCard';
-import tw from 'twin.macro'
+import StatusCard from "components/adminComponents/StatusCard";
+import TableCard from "components/adminComponents/TableCard";
+import tw from "twin.macro";
+import Button from "@material-tailwind/react/Button";
 
 const CardsGroup = tw.div`bg-blue-500 pt-14 pb-28 px-3 md:px-8 h-auto`;
-const CardsContainer = tw.div`container mx-auto max-w-full`
-const CardsGrid = tw.div`grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4`
+const CardsContainer = tw.div`container mx-auto`;
+const CardsGrid = tw.div`grid grid-cols-6`;
+const CardHolder = tw.div`px-4 mb-10 col-end-7 col-span-1 `;
 
-const SecondGroup = tw.div`px-3 md:px-8 h-auto -mt-24`
-const SecondConatainer = tw.div`container mx-auto max-w-full`
-const SecondGrid = tw.div`grid grid-cols-1 px-4 mb-16`
+const SecondGroup = tw.div`px-3 md:px-8 h-auto -mt-24`;
+const SecondConatainer = tw.div`container mx-auto max-w-full`;
+const SecondGrid = tw.div`grid grid-cols-1 px-4 mb-16`;
 
 export default function Dashboard() {
-    return (
-        <>
-            <CardsGroup>
-                <CardsContainer>
-                    <CardsGrid>
-                        <StatusCard
+  return (
+    <>
+      <CardsGroup>
+        <CardsContainer>
+          <CardsGrid>
+            <CardHolder>
+              <Button
+                color="purple"
+                buttonType="filled"
+                size="regular"
+                // rounded={false}
+                // block={false}
+                // iconOnly={false}
+                ripple="light"
+              >
+                Add New
+              </Button>
+            </CardHolder>
+            {/* <StatusCard
                             color="pink"
                             icon="trending_up"
                             title="Traffic"
@@ -26,7 +41,7 @@ export default function Dashboard() {
                             percentageColor="green"
                             date="Since last month"
                         />
-                        <StatusCard
+                        /*<StatusCard
                             color="orange"
                             icon="groups"
                             title="New Users"
@@ -55,18 +70,18 @@ export default function Dashboard() {
                             percentageIcon="arrow_upward"
                             percentageColor="green"
                             date="Since last month"
-                        />
-                    </CardsGrid>
-                </CardsContainer>
-            </CardsGroup>
+                        /> */}
+          </CardsGrid>
+        </CardsContainer>
+      </CardsGroup>
 
-            <SecondGroup>
-                <SecondConatainer>
-                    <SecondGrid>
-                        <TableCard />
-                    </SecondGrid>
-                </SecondConatainer>
-            </SecondGroup>
-        </>
-    );
+      <SecondGroup>
+        <SecondConatainer>
+          <SecondGrid>
+            <TableCard />
+          </SecondGrid>
+        </SecondConatainer>
+      </SecondGroup>
+    </>
+  );
 }

@@ -6,7 +6,7 @@ import CardStatusFooter from '@material-tailwind/react/CardStatusFooter';
 import Icon from '@material-tailwind/react/Icon';
 import tw from "twin.macro";
 
-const CardHolder = tw.div`px-4 mb-10`
+export const CardHolder = tw.div`px-4 mb-10`
 
 export default function StatusCard({
     color,
