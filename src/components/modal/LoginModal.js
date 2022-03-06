@@ -26,22 +26,22 @@ const SignUpModal = ({ showModal, setShowModal }) => {
         });
     };
 
-    const UserLogin = async(e) => {
+    const UserLogin = async (e) => {
         e.preventDefault();
-        // console.log(fields);
-        // await dispatch(LoginAction(fields, history));
-            let user ={
-                api_token: null,
-                created_at: "2022-02-10T13:47:13.000000Z",    
-                email: "admin@gmail.com",    
-                email_verified_at: null,    
-                id: 4,    
-                is_admin: 1,    
-                name: "admin1",    
-                updated_at: "2022-02-10T13:47:13.000000Z",
-            }
-            localStorage.setItem("user-data", JSON.stringify(user));
-        if(localStorage.getItem('user-data').is_Admin === 1){
+        console.log(fields);
+        await dispatch(LoginAction(fields, history));
+        // let user ={
+        //     api_token: null,
+        //     created_at: "2022-02-10T13:47:13.000000Z",    
+        //     email: "admin@gmail.com",    
+        //     email_verified_at: null,    
+        //     id: 4,    
+        //     is_admin: 1,    
+        //     name: "admin1",    
+        //     updated_at: "2022-02-10T13:47:13.000000Z",
+        // }
+        // localStorage.setItem("user-data", JSON.stringify(user));
+        if (localStorage.getItem('user-data').is_Admin === 1) {
             history("/admin/admin/dashboard")
         }
     };
