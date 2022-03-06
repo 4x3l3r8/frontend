@@ -1,18 +1,18 @@
-import React, { useState } from "react";
+import React, { useState } from "react"; // eslint-disable-line
 import Modal from "@material-tailwind/react/Modal";
 import ModalHeader from "@material-tailwind/react/ModalHeader";
 import ModalBody from "@material-tailwind/react/ModalBody";
 import ModalFooter from "@material-tailwind/react/ModalFooter";
 import Button from "@material-tailwind/react/Button";
 
-export default function LargeModal({ title, children, active, footer = false }) {
-    const [showModal, setShowModal] = React.useState(active);
+export default function LargeModal({ title, children, setOpenModal, active, footer = false }) {
+    // const [active, setOpenModal] = React.useState(active);
 
     return (
         <>
-            <Modal size="lg" active={showModal} toggler={() => setShowModal(false)}>
-                <ModalHeader toggler={() => setShowModal(false)}>
-                    Modal Title
+            <Modal size="lg" active={active} toggler={() => setOpenModal(false)}>
+                <ModalHeader toggler={() => setOpenModal(false)}>
+                    {title}
                 </ModalHeader>
                 <ModalBody>
                     {children}
@@ -21,7 +21,7 @@ export default function LargeModal({ title, children, active, footer = false }) 
                     <Button
                         color="red"
                         buttonType="link"
-                        onClick={(e) => setShowModal(false)}
+                        onClick={(e) => setOpenModal(false)}
                         ripple="dark"
                     >
                         Close
@@ -29,7 +29,7 @@ export default function LargeModal({ title, children, active, footer = false }) 
 
                     <Button
                         color="green"
-                        onClick={(e) => setShowModal(false)}
+                        onClick={(e) => setOpenModal(false)}
                         ripple="light"
                     >
                         Save Changes
