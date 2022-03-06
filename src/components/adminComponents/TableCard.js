@@ -8,11 +8,11 @@ import Team2 from 'images/team-2-800x800.jpg';
 import Team3 from 'images/team-3-800x800.jpg';
 import Team4 from 'images/team-4-470x470.png';
 
-export default function CardTable() {
+export default function CardTable({ title }) {
     return (
         <Card>
             <CardHeader color="purple" contentPosition="left">
-                <h2 className="text-white text-2xl">Card Table</h2>
+                <h2 className="text-white text-2xl">{title}</h2>
             </CardHeader>
             <CardBody>
                 <div className="overflow-x-auto">

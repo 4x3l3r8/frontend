@@ -78,7 +78,7 @@ export default function Dashboard() {
       <SecondGroup>
         <SecondConatainer>
           <SecondGrid>
-            <TableCard />
+            <TableCard title="Requests" />
           </SecondGrid>
         </SecondConatainer>
       </SecondGroup>
