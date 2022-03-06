@@ -2,7 +2,7 @@ import axios from "axios";
 
 const Category = {
     list: (page = 1) => {
-        return axios.get('/categories?page=' + page);
+        return axios.get('http://localhost:8000/api/categories?page=' + page);
     },
     add: (title) => {
         return axios.post('/categories', { title }, { headers: { Authorization: 'Bearer ' + localStorage.getItem("user.api_token") } });
