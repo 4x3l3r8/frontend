@@ -29,7 +29,7 @@ export default function Dashboard() {
           {/* <CardsGrid> */}
           <CardHolder>
             <Button
-              color="orange"
+              color="lightGreen"
               buttonType="outline"
               size="sm"
               rounded={true}

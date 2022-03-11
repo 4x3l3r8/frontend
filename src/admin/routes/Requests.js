@@ -1,4 +1,4 @@
-import StatusCard from "components/adminComponents/StatusCard";
+import StatusCard from "components/adminComponents/StatusCard"; // eslint-disable-line
 import TableCard from "components/adminComponents/TableCard";
 import tw from "twin.macro";
 import Button from "@material-tailwind/react/Button";
