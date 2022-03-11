@@ -5,7 +5,7 @@ import ModalBody from "@material-tailwind/react/ModalBody";
 import ModalFooter from "@material-tailwind/react/ModalFooter";
 import Button from "@material-tailwind/react/Button";
 
-export default function LargeModal({ title, children, setOpenModal, active, footer = false }) {
+export default function LargeModal({ title, children, setOpenModal, active, footer = false, save = () => false }) {
     // const [active, setOpenModal] = React.useState(active);
 
     return (
@@ -18,19 +18,20 @@ export default function LargeModal({ title, children, setOpenModal, active, foot
                     {children}
                 </ModalBody>
                 {footer && <ModalFooter>
-                    <Button
+                    {/* <Button
                         color="red"
                         buttonType="link"
                         onClick={(e) => setOpenModal(false)}
                         ripple="dark"
                     >
                         Close
-                    </Button>
+                    </Button> */}
 
                     <Button
                         color="green"
-                        onClick={(e) => setOpenModal(false)}
+                        onClick={(e) => save()}
                         ripple="light"
+                        type={save ? "submit" : "button"}
                     >
                         Save Changes
                     </Button>
