@@ -24,15 +24,12 @@ export default function Sidebar() {
                 showSidebar={showSidebar}
                 setShowSidebar={setShowSidebar}
             />
-            <SideBarContainer className={showSidebar}>
-                {/* <div className={`h-screen fixed bottom-0 top-0 md:left-0 ${showSidebar} overflow-y-auto flex-row flex-nowrap overflow-hidden shadow-xl bg-white w-64 z-10 py-4 px-6 transition-all duration-300`}> */}
+            <SideBarContainer>
                 <SideBarFlex>
                     <SidebarHeadText
-                        href="https://material-tailwind.com?ref=mtd"
-                        target="_blank"
-                        rel="noreferrer"
+                        href="https://localhost:3000"
                     >
-                        <H6 color="gray">Material Tailwind</H6>
+                        <H6 color="gray">Haegmon Vision Group</H6>
                     </SidebarHeadText>
                     <NavBody>
                         <HL />

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { connect } from "react-redux";
-import { listCategories, setCategoryDefaults } from "../../redux/actions/CategoryActions";
+import { listCategories, setCategoryDefaults, deleteCategory } from "../../redux/actions/CategoryActions";
 import Spinner from "../misc/Spinner";
 import Button from "@material-tailwind/react/Button";
 import { Link } from "react-router-dom"; //eslint-disable-line
@@ -8,6 +8,10 @@ import Pagination from "@material-tailwind/react/Pagination";
 import Progress from "@material-tailwind/react/Progress";
 import SuccessAlert from "@material-tailwind/react/ClosingAlert";
 import tw from "twin.macro";
+import Modal from "@material-tailwind/react/Modal";
+import ModalHeader from "@material-tailwind/react/ModalHeader";
+import ModalBody from "@material-tailwind/react/ModalBody";
+import ModalFooter from "@material-tailwind/react/ModalFooter";
 import LargeModal from "components/modal/LargeModal";
 import Icon from "@material-tailwind/react/Icon";
 import Image from "@material-tailwind/react/Image";
@@ -21,7 +25,7 @@ import Team4 from "images/team-4-470x470.png";
 import AddCategories from "./AddCategories";
 import EditCategory from "./EditCategory";
 
-const Container = tw.div`container mx-auto px-4 w-96 w-full h-96`;
+const Container = tw.div`container mx-auto px-4 w-96 overflow-y-auto w-full h-96 max-h-full`;
 const Section = tw.section``;
 const Content = styled(Section)`
   ${tw`content`}
@@ -32,7 +36,7 @@ function Categories(props) {
   const [addModal, setAddModal] = useState(false);
   const [editModal, setEditModal] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false);
-  const [id, setId] = useState(0);
+  const [id, setId] = useState();
   const [catTitle, setCatTitle] = useState("");
 
   useEffect(() => {
@@ -56,6 +60,15 @@ function Categories(props) {
       setTimeout(() => props.history.push("/categories"), 2000);
     });
   };
+
+  let handleDelete = (e) => {
+    e.preventDefault();
+    if (id !== null) {
+      props.deleteCategory(id);
+    } else {
+
+    }
+  }
 
   const editRef = useRef();
   const deleteRef = useRef();
@@ -220,9 +233,34 @@ function Categories(props) {
       <LargeModal title="Edit Category" setOpenModal={setEditModal} footer={false} active={editModal}>
         <EditCategory setEditModal={setEditModal} id={id} catTitle={catTitle} />
       </LargeModal>
-      <LargeModal title="Edit Category" setOpenModal={setDeleteModal} footer={false} active={deleteModal}>
-        <EditCategory setAddModal={setDeleteModal} id={id} />
-      </LargeModal>
+      <Modal title="Edit Category" active={deleteModal}>
+        <ModalHeader toggler={() => setDeleteModal(false)}>
+          Delete {catTitle}?
+        </ModalHeader>
+        <ModalBody>
+          <p className="text-base leading-relaxed text-gray-600 font-normal">
+            Are you sure you want to delete this category?
+          </p>
+        </ModalBody>
+        <ModalFooter>
+          <Button
+            color="green"
+            buttonType="link"
+            onClick={(e) => setDeleteModal(false)}
+            ripple="dark"
+          >
+            Close
+          </Button>
+
+          <Button
+            color="red"
+            onClick={(e) => handleDelete()}
+            ripple="light"
+          >
+            Delete
+          </Button>
+        </ModalFooter>
+      </Modal>
     </Container>
   );
 }
@@ -237,6 +275,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     listCategories: (page) => dispatch(listCategories(page)),
     setCategoryDefaults: () => dispatch(setCategoryDefaults()),
+    deleteCategory: (id) => dispatch(deleteCategory(id)),
   };
 };
 
