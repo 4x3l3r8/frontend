@@ -24,6 +24,7 @@ import Team3 from "images/team-3-800x800.jpg";
 import Team4 from "images/team-4-470x470.png";
 import AddCategories from "./AddCategories";
 import EditCategory from "./EditCategory";
+import Chip from "../misc/Chips";
 
 const Container = tw.div`container mx-auto px-4 w-96 overflow-y-auto w-full h-96 max-h-full`;
 const Section = tw.section``;
@@ -38,6 +39,7 @@ function Categories(props) {
   const [deleteModal, setDeleteModal] = useState(false);
   const [id, setId] = useState();
   const [catTitle, setCatTitle] = useState("");
+  const [test, setTest] = useState(false);
 
   useEffect(() => {
     props.setCategoryDefaults();
@@ -66,9 +68,8 @@ function Categories(props) {
     if (id !== null) {
       props.deleteCategory(id);
     } else {
-
     }
-  }
+  };
 
   const editRef = useRef();
   const deleteRef = useRef();
@@ -234,29 +235,16 @@ function Categories(props) {
         <EditCategory setEditModal={setEditModal} id={id} catTitle={catTitle} />
       </LargeModal>
       <Modal title="Edit Category" active={deleteModal}>
-        <ModalHeader toggler={() => setDeleteModal(false)}>
-          Delete {catTitle}?
-        </ModalHeader>
+        <ModalHeader toggler={() => setDeleteModal(false)}>Delete {catTitle}?</ModalHeader>
         <ModalBody>
-          <p className="text-base leading-relaxed text-gray-600 font-normal">
-            Are you sure you want to delete this category?
-          </p>
+          <p className="text-base leading-relaxed text-gray-600 font-normal">Are you sure you want to delete this category?</p>
         </ModalBody>
         <ModalFooter>
-          <Button
-            color="green"
-            buttonType="link"
-            onClick={(e) => setDeleteModal(false)}
-            ripple="dark"
-          >
+          <Button color="green" buttonType="link" onClick={(e) => setDeleteModal(false)} ripple="dark">
             Close
           </Button>
 
-          <Button
-            color="red"
-            onClick={(e) => handleDelete()}
-            ripple="light"
-          >
+          <Button color="red" onClick={(e) => handleDelete()} ripple="light">
             Delete
           </Button>
         </ModalFooter>
